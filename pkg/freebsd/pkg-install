@@ -15,16 +15,16 @@ fi
 
 if [ $2 == "POST-INSTALL" ]; then
     chown -R krmx:krmx /opt/kronometrix/kernel/stats
-    cp /opt/kronometrix/kernel/stats/etc/rc/kkernel-stats /etc/rc.d/
-    /etc/rc.d/kkernel-stats onestart
+    cp /opt/kronometrix/kernel/stats/etc/rc/kstats /etc/rc.d/
+    /etc/rc.d/kstats onestart
 
     # install service
-    grep kkernel-stats ${RC_CONF} >/dev/null 2>&1
+    grep kstats ${RC_CONF} >/dev/null 2>&1
 
     if [ $? -eq 1 ]; then
         # add the service
-        echo "kkernel-stats_enable=\"YES\"" >> ${RC_CONF}
-        echo "kkernel-stats_user=\"krmx\"" >> ${RC_CONF}
+        echo "kstats_enable=\"YES\"" >> ${RC_CONF}
+        echo "kstats_user=\"krmx\"" >> ${RC_CONF}
         if [ $? -eq 1 ]; then
             echo "Error: cannot activate service, exit now"
             exit 1
