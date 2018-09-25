@@ -44,7 +44,7 @@ REDIS_SOCK="${BASEDIR}/logs/stats.sock"
 test -d ${BASEDIR} || exit 0
 
 start() {
-    echo "Starting Kronometrix kernel-stats db service"
+    echo "Starting Kronometrix kernel stats db service"
 
     if [ "X${OS_NAME}" = "XSunOS" ]; then
         echo " ${rep} service: \c"
@@ -73,7 +73,7 @@ start() {
 
 
 stop() {
-    echo "Stopping Kronometrix kernel-stats db service"
+    echo "Stopping Kronometrix kernel stats db service"
 
     # fetch correct port. kernel runs on
     port=`grep '^port' $REDIS_CONF | sed 's/port //'`

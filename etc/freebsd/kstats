@@ -33,39 +33,39 @@
 #
 # Add the following lines to /etc/rc.conf to enable Kronometrix
 #
-# kkernel-stats_enable="YES"
-# kkernel-stats_user="krmx"
+# kstats_enable="YES"
+# kstats_user="krmx"
 
 . /etc/rc.subr
 
-name=kkernel-stats
-rcvar=kkernel-stats_enable
+name=kstats
+rcvar=kstats_enable
 
 load_rc_config ${name}
 
-command=/opt/kronometrix/kernel/stats/etc/kkernel-stats
+command=/opt/kronometrix/kernel/stats/etc/kstats
 start_cmd="${name}_start"
 stop_cmd="${name}_stop"
 status_cmd="${name}_status"
 
-: ${kkernel-stats_enable="YES"}
-: ${kkernel-stats_user="krmx"}
-: ${kkernel-stats_args=""}
+: ${kstats_enable="YES"}
+: ${kstats_user="krmx"}
+: ${kstats_args=""}
 
-kkernel-stats_start() {
+kstats_start() {
     unset "${rc_arg}_cmd"
     local cmd
-    kkernel-stats_args="start"
-    cmd="${command} ${kkernel-stats_args}"
-    su -m ${kkernel-stats_user} -c "${cmd}" 
+    kstats_args="start"
+    cmd="${command} ${kstats_args}"
+    su -m ${kstats_user} -c "${cmd}" 
 }
 
 
-kkernel-stats_stop() {
+kstats_stop() {
     local cmd
-    kkernel-stats_args="stop"
-    cmd="${command} ${kkernel-stats_args}"
-    su -m ${kkernel-stats_user} -c "${cmd}"
+    kstats_args="stop"
+    cmd="${command} ${kstats_args}"
+    su -m ${kstats_user} -c "${cmd}"
 }
 
 

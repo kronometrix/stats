@@ -43,7 +43,7 @@ NFCGI=1
 test -d ${BASEDIR} || exit 0
 
 start() {
-    echo "Starting Kronometrix kernel-stats aux http service"
+    echo "Starting Kronometrix kernel stats aux http service"
 
     if [ "X${OS_NAME}" = "XSunOS" ]; then
         echo " ${rep} service: \c"
@@ -72,7 +72,7 @@ start() {
 
 
 stop() {
-    echo "Stopping Kronometrix kernel-stats aux http service"
+    echo "Stopping Kronometrix kernel stats aux http service"
 
     if [ "X${OS_NAME}" = "XSunOS" ]; then
         echo " ${rep} service: \c"
