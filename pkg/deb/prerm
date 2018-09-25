@@ -1,0 +1,9 @@
+#!/bin/sh
+
+update-rc.d -f kkernel remove >/dev/null 2>&1 || : 
+
+# uinstall
+if [ -L /etc/init.d/kkernel ]; then
+    /etc/init.d/kkernel stop >/dev/null 2>&1 || :
+    rm -f /etc/init.d/kkernel || :
+fi
