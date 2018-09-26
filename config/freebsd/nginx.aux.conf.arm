@@ -46,4 +46,13 @@ http {
         index index.html;
         root ../static;
     }
+
+    server {
+        listen 127.0.0.1:9103;
+        index index.html;
+        root ../static;
+
+        # include application routes; this path is relative to this conf file!
+        include ../../app/conf/kernel-api-aux.conf;
+    }
 }
